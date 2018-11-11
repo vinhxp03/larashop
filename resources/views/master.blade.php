@@ -1,56 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Laravel </title>
-	<base href="{{asset('')}}">
-	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="source/assets/dest/css/font-awesome.min.css">
-	<link rel="stylesheet" href="source/assets/dest/vendors/colorbox/example3/colorbox.css">
-	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/settings.css">
-	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
-	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
-	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
-	<link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
+    <title>OneTech</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="OneTech shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="{{asset('')}}">
+    <link rel="stylesheet" type="text/css" href="source/styles/bootstrap4/bootstrap.min.css">
+    <link href="source/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="source/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="source/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="source/plugins/OwlCarousel2-2.2.1/animate.css">
+	@stack('styles')
 </head>
+
 <body>
-	<!-- header -->
-	@include('header')
+    <div class="super_container">
 
-	<!-- content -->
-	@yield('content')
+        <!-- Header -->
+        @include('header') 
 
-	<!-- footer -->
-	@include('footer')
+		{{-- Content --}}
+        @yield('content')
 
-	<!-- include js files -->
-	<script src="source/assets/dest/js/jquery.js"></script>
-	<script src="source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="source/assets/dest/vendors/bxslider/jquery.bxslider.min.js"></script>
-	<script src="source/assets/dest/vendors/colorbox/jquery.colorbox-min.js"></script>
-	<script src="source/assets/dest/vendors/animo/Animo.js"></script>
-	<script src="source/assets/dest/vendors/dug/dug.js"></script>
-	<script src="source/assets/dest/js/scripts.min.js"></script>
-	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="source/assets/dest/js/waypoints.min.js"></script>
-	<script src="source/assets/dest/js/wow.min.js"></script>
-	<!--customjs-->
-	<script src="source/assets/dest/js/custom2.js"></script>
-	<script>
-	$(document).ready(function($) {    
-		$(window).scroll(function(){
-			if($(this).scrollTop()>150){
-			$(".header-bottom").addClass('fixNav')
-			}else{
-				$(".header-bottom").removeClass('fixNav')
-			}}
-		)
-	})
-	</script>
+        <!-- Footer -->
+        @include('footer')
+
+    </div>
+
+    <script src="source/js/jquery-3.3.1.min.js"></script>
+    <script src="source/styles/bootstrap4/popper.js"></script>
+    <script src="source/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="source/plugins/greensock/TweenMax.min.js"></script>
+    <script src="source/plugins/greensock/TimelineMax.min.js"></script>
+    <script src="source/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="source/plugins/greensock/animation.gsap.min.js"></script>
+    <script src="source/plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="source/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="source/plugins/slick-1.8.0/slick.js"></script>
+    <script src="source/plugins/easing/easing.js"></script>
+    @stack('scripts')
 </body>
+
 </html>

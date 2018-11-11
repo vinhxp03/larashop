@@ -20,8 +20,22 @@ Route::get('index', [
 	'uses' => 'PageController@getIndex',
 ]);
 
-Route::get('loai-san-pham', 'PageController@getProductType');
+Route::get('loai-san-pham', [
+	'as' => 'loaisp',
+	'uses' => 'PageController@getProductType'
+]);
 
-Route::get('chi-tier-san-pham', 'PageController@getProductDetail');
+Route::get('chi-tier-san-pham', [
+	'as' => 'chitietsp',
+	'uses' => 'PageController@getProductDetail'
+]);
 
-Route::get('lien-he', 'PageController@getContact');
+Route::get('lien-he', [
+	'as' => 'lienhe',
+	'uses' => 'PageController@getContact'
+]);
+
+Route::get('gioi-thieu', [
+	'as' => 'gioithieu',
+	'uses' => 'PageController@getIntroduce'
+]);
