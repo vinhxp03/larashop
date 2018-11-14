@@ -26,10 +26,10 @@ class CheckAdminLogin
                 return $next($request);
             } else {
                 Auth::logout();
-                return redirect('/admin/login');
+                return redirect('admin/login')->with('message', 'Bạn chưa có quyền truy cập vào trang quản trị!');
             }
         } else {
-            return redirect('/admin/login');
+            return redirect('admin/login')->with('message', 'Vui lòng đăng nhập trước!');
         }
     }
 }

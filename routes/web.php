@@ -40,17 +40,18 @@ Route::get('gioi-thieu', [
 	'uses' => 'PageController@getIntroduce'
 ]);
 
+// Admin Login
+Route::get('admin/login', 'Backend\AdminController@getLogin');
+Route::post('admin/login', 'Backend\AdminController@postLogin');
+
+// Admin Register
+Route::get('admin/register', 'Backend\AdminController@getRegister');
+Route::post('admin/register', 'Backend\AdminController@postRegister');
+
 // Route Group Admin
-Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function (){
-	Route::get('/', 'BaseController@index');
+Route::group(['middleware' => 'checklogin', 'namespace' => 'Backend', 'prefix' => 'admin'], function (){
+	Route::get('', 'BaseController@index');
 
-	// Admin Login
-	Route::get('/login', 'BaseController@getLogin');
-	Route::post('/login', 'BaseController@postLogin');
 	// Admin Logout
-	Route::get('/logout', 'BaseController@logout');
-
-	// Register
-	Route::get('/register', 'BaseController@getRegister');
-	Route::post('/register', 'BaseController@postRegister');
+	Route::get('logout', 'AdminController@logout');
 });
