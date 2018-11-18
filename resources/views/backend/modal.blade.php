@@ -1,3 +1,40 @@
+{{-- Modal change password --}}
+<div class="modal fade" id="change-pass" tabindex="-1" role="dialog" aria-labelledby="changePassword" aria-hidden="true">
+  <div class="modal-dialog" style="width:420px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header px-4">
+        <h5 class="modal-title" id="changePassword">Đổi mật khẩu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span class="material-icons ">close</span>
+        </button>
+      </div>
+      <div class="modal-body p-4">
+        <div id="title-notify-change-password"></div>
+        <form action="" method="post">
+          {{ csrf_field() }}
+          <div class="form-group" id="old-pass">
+            <label for="">Mật khẩu cũ</label>
+            <input type="password" class="form-control" placeholder="Nhập mật khẩu cũ" name="old_pass">
+          </div>
+          <div class="form-group" id="new-pass">
+            <label for="">Mật khẩu mới</label>
+            <input type="password" class="form-control" placeholder="Nhập mật khẩu mới" name="new_pass">
+          </div>
+          <div class="form-group" id="re-pass">
+            <label for="">Nhập lại mật khẩu</label>
+            <input type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" name="re_pass">
+          </div>
+          <div class="modal-footer px-4">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+            <button type="button" id="submit-changepass" class="btn btn-primary">Lưu thay đổi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- end modal change password --}}
+
 <div class="modal fade" id="switchApp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">

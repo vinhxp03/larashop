@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Cosmo - Responsive Dashboard Admin Template">
     <meta name="author" content="Akshay Kumar">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <link rel="icon" href="backend/images/favicon.ico">
     <!-- Messgaes CSS -->
@@ -15,11 +16,8 @@
     <link rel="stylesheet" href="backend/css/basestyle/style.css">
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Date Range Picker -->
-    <link rel="stylesheet" type="text/css" href="backend/css/daterangepicker/daterangepicker.css" />
-    <!-- Full Calendar Icons -->
-    <link href="backend/css/fullcalendar/fullcalendar.css" rel="stylesheet">
     <title>Cosmo - Responsive Dashboard Admin Template</title>
+    @stack('styles')
   </head>
   <body>
     <!-- Pre Loader-->
@@ -45,25 +43,32 @@
       @include('backend.sidebar')
       
       <!--RIGHT CONTENT AREA-->
-      @yield('content')
+      <div class="content-area">
+        @include('backend.header')
+
+        <div class="content-wrapper">
+          @yield('content')
+         
+          <footer class="footer">
+            <p class="text-muted m-0"><small class="float-right">Made with <span class="material-icons md-16 text-danger align-middle">favorite</span> by Akshay Kumar </small><small >FreakPixels © 2016–2018 - freakpixels.com</small></p>
+          </footer>
+        </div>
+      </div>
 
     </section>
     {{-- Modal Aplication --}}
     @include('backend.modal')
 
     <a target="_blank" href="{{route('trang-chu')}}" class="buynow-btn btn btn-success text-white"><span class="material-icons mr-2 align-middle"><i class="material-icons d-block mb-1">home</i></span> <span class="text">Trang chính</span></a>
-    <!-- ChartJS -->
-    <script src="backend/js/chartjs/Chart.js"></script>
-    <script src="backend/js/chartjs/utils.js"></script>
+    
     <script src="backend/js/lib/moment.min.js"></script>
     <script src="backend/js/lib/jquery.min.js"></script>
     <script src="backend/js/lib/popper.min.js"></script>
     <script src="backend/js/bootstrap/bootstrap.min.js"></script>
     <script src="backend/js/chosen-js/chosen.jquery.js"></script>
-    <script src="backend/js/fullcalendar/fullcalendar.js"></script>
-    <script src="backend/js/daterangepicker/daterangepicker.min.js"></script>
+    <script src="backend/js/form-submit/change-pass.js"></script>
+    @stack('scripts')
     <script src="backend/js/custom.js"></script>
-    <script src="backend/js/pages/dashboard.script.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56821827-7"></script>

@@ -41,17 +41,24 @@ Route::get('gioi-thieu', [
 ]);
 
 // Admin Login
-Route::get('admin/login', 'Backend\AdminController@getLogin');
-Route::post('admin/login', 'Backend\AdminController@postLogin');
+Route::get('admin/login', 'Backend\AccountController@getLogin');
+Route::post('admin/login', 'Backend\AccountController@postLogin');
 
 // Admin Register
-Route::get('admin/register', 'Backend\AdminController@getRegister');
-Route::post('admin/register', 'Backend\AdminController@postRegister');
+Route::get('admin/register', function (){ return view('backend.account.register'); });
+Route::post('admin/register', 'Backend\AccountController@postRegister');
 
 // Route Group Admin
 Route::group(['middleware' => 'checklogin', 'namespace' => 'Backend', 'prefix' => 'admin'], function (){
 	Route::get('', 'BaseController@index');
 
-	// Admin Logout
-	Route::get('logout', 'AdminController@logout');
+	// Admin
+	Route::get('logout', 'AccountController@logout');
+	
+	// Đổi mật khẩu
+	Route::post('change-password', 'AccountController@changePass');
+
+	Route::get('profile', function (){ return view('backend.account.profile'); });
+
+	Route::get('modal', function (){ return view('backend.modals'); });
 });

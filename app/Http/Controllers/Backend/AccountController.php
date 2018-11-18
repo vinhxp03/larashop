@@ -8,7 +8,7 @@ use App\User;
 use Hash;
 use Auth;
 
-class AdminController extends Controller
+class AccountController extends Controller
 {
     public function getLogin()
     {
@@ -48,11 +48,6 @@ class AdminController extends Controller
     	return redirect('admin/login');
     }
 
-    public function getRegister()
-    {
-    	return view('backend.account.register');
-    }
-
     public function postRegister(Request $req)
     {
     	$this->validate($req,
@@ -86,5 +81,53 @@ class AdminController extends Controller
     	$user->admin = 0;
     	$user->save();
     	return redirect()->back()->with('success', 'Tạo tài khoản thành công!');
+    }
+
+    public function changePass(Request $req)
+    {
+        $old_pass = trim($req->old_pass);
+        $new_pass = trim($req->new_pass);
+        $re_pass = trim($req->re_pass);
+        $err = [];
+        
+        // Mật khẩu cũ
+        if ($old_pass == '') {
+            $err['old_pass'] = 'Mật khẩu cũ không được bỏ trống!';
+        } else {
+            if (Auth::check()) {
+                $user = User::where(['id' => Auth::id()])->first();
+                if (Hash::check($old_pass, $user->password) === false) {
+                    $err['old_pass'] = 'Mật khẩu cũ không chính xác!';
+                }
+            }
+        }
+
+        // Mật khẩu mới
+        if ($new_pass == '') {
+            $err['new_pass'] = 'Mật khẩu mới được bỏ trống!';
+        } elseif (strlen($new_pass) < 6 || strlen($new_pass) > 20) {
+            $err['new_pass'] = 'Mật khẩu phải từ 6-20 ký tự!';
+        } elseif ($new_pass == $old_pass) {
+            $err['new_pass'] = 'Mật khẩu mới không được trùng với mật khẩu cũ!';
+        }
+
+        // Nhập lại mật khẩu
+        if ($re_pass == '') {
+            $err['re_pass'] = 'Nhập lại mật khẩu không được bỏ trống!';
+        } elseif ($new_pass !== $re_pass) {
+            $err['re_pass'] = 'Nhập lại mật khẩu không chính xác!';
+        }
+        if (count($err) > 0) {
+            return $err;
+        }
+
+        // Update password
+        if ($req->isMethod('post')) {
+            if (Hash::check($old_pass, $user->password)) {
+                $password = bcrypt($new_pass);
+                User::where(['id' => Auth::id()])->update(['password' => $password]);
+                return ['success_password' => 'Thay đổi mật khẩu thành công!'];
+            }
+        }
     }
 }

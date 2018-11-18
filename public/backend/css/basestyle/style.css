@@ -2526,11 +2526,12 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 /* line 30, ../../scss/bootstrap/mixins/_forms.scss */
 .invalid-feedback {
-  display: none;
+  display: block;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
-  color: #EA585A;
+  font-size: 85%;
+  color: #e8373a;
+  margin-left: 8px;
 }
 
 /* line 38, ../../scss/bootstrap/mixins/_forms.scss */

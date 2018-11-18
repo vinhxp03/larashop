@@ -1,12 +1,12 @@
 <aside class="sidebar">
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand m-0 py-2 brand-title" href="#">Cosmo Admin</a>
+    <a class="navbar-brand m-0 py-2 brand-title" href="{{ url('admin') }}">Cosmo Admin</a>
     <span></span>
     <a class="navbar-brand py-2 material-icons toggle-sidebar" href="#">menu</a>
   </nav>
   <nav class="navigation" >
     <ul>
-      <li class="active"><a href="index-2.html" title="Dashboard"><span class="nav-icon material-icons">public</span> Dashboard</a></li>
+      <li class="active"><a href="{{ url('admin') }}" title="Dashboard"><span class="nav-icon material-icons">public</span> Dashboard</a></li>
       <li title="Theme Settings"><a href="theme-setting.html"><span class="nav-icon material-icons ">color_lens</span> Theme Settings </a>
       </li>
       <li>
