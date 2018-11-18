@@ -7,7 +7,9 @@
   <nav class="navigation" >
     <ul>
       <li class="active"><a href="{{ url('admin') }}" title="Dashboard"><span class="nav-icon material-icons">public</span> Dashboard</a></li>
-      <li title="Theme Settings"><a href="theme-setting.html"><span class="nav-icon material-icons ">color_lens</span> Theme Settings </a>
+      <li title="Danh mục"><a href=""><span class="nav-icon material-icons ">category</span> Danh mục </a>
+      </li>
+      <li title="Theme Settings"><a href="{{ url('admin/theme') }}"><span class="nav-icon material-icons ">color_lens</span> Theme Settings </a>
       </li>
       <li>
         <a href="#" title="Layout Options"><span class="nav-icon material-icons">dashboard</span> Layout Options<span class="toogle-sub-nav material-icons">keyboard_arrow_right</span></a>

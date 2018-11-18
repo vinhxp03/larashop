@@ -54,6 +54,9 @@ Route::group(['middleware' => 'checklogin', 'namespace' => 'Backend', 'prefix' =
 
 	// Admin
 	Route::get('logout', 'AccountController@logout');
+
+	// Theme setting
+	Route::get('theme', function (){ return view('backend.theme'); });
 	
 	// Đổi mật khẩu
 	Route::post('change-password', 'AccountController@changePass');
@@ -61,4 +64,8 @@ Route::group(['middleware' => 'checklogin', 'namespace' => 'Backend', 'prefix' =
 	Route::get('profile', function (){ return view('backend.account.profile'); });
 
 	Route::get('modal', function (){ return view('backend.modals'); });
+
+	// Category
+	Route::get('category', 'CategoryController@index');
+	Route::match(['get', 'post'], 'add-category', 'CategoryController@addCategory');
 });
