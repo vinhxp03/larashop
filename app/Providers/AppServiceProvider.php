@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\ProductType;
+use App\Category;
 use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,8 +18,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         view()->composer('header', function ($view){
-            $product_type = ProductType::all();
-            $view->with('loai_sp', $product_type);
+            $categories = Category::all();
+            $view->with('categories', $categories);
         });
     }
 

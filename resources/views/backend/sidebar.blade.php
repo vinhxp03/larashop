@@ -6,10 +6,12 @@
   </nav>
   <nav class="navigation" >
     <ul>
-      <li class="active"><a href="{{ url('admin') }}" title="Dashboard"><span class="nav-icon material-icons">public</span> Dashboard</a></li>
-      <li title="Danh mục"><a href=""><span class="nav-icon material-icons ">category</span> Danh mục </a>
+      <li class="{{ request()->is('admin') ? 'active' : ''}}" ><a href="{{ url('admin') }}" title="Dashboard"><span class="nav-icon material-icons">public</span> Dashboard</a></li>
+      <li class="{{ request()->is('admin/category*') ? 'active' : ''}}" title="Danh mục"><a href="{{ url('admin/category') }}"><span class="nav-icon material-icons ">category</span> Danh mục </a>
       </li>
-      <li title="Theme Settings"><a href="{{ url('admin/theme') }}"><span class="nav-icon material-icons ">color_lens</span> Theme Settings </a>
+      <li class="{{ request()->is('admin/profile*') ? 'active' : ''}}" title="Tài khoản"><a href="{{ url('admin/profile') }}"><span class="nav-icon material-icons ">account_circle</span> Cá nhân </a>
+      </li>
+      <li class="{{ request()->is('admin/theme*') ? 'active' : ''}}" title="Theme Settings"><a href="{{ url('admin/theme') }}"><span class="nav-icon material-icons ">color_lens</span> Theme Settings </a>
       </li>
       <li>
         <a href="#" title="Layout Options"><span class="nav-icon material-icons">dashboard</span> Layout Options<span class="toogle-sub-nav material-icons">keyboard_arrow_right</span></a>

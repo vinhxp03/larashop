@@ -33,7 +33,29 @@
     </div>
   </div>
 </div>
-{{-- end modal change password --}}
+{{-- End modal change password --}}
+
+{{-- Modal confirm  --}}
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="material-icons ">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc rằng muốn xóa dòng này?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- End Modal Confirm  --}}
 
 <div class="modal fade" id="switchApp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">

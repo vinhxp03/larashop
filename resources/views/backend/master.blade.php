@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- Pre Loader-->
-    <div class="loader-wrapper">
+    {{-- <div class="loader-wrapper">
       <div class="spinner">
         <svg viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           <circle class="length" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="28"></circle>
@@ -36,7 +36,7 @@
           <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="28"></circle>
         </svg>
       </div>
-    </div>
+    </div> --}}
     <!-- Pre Loader-->
     <section class="wrapper">
       <!-- SIDEBAR -->

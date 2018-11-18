@@ -67,5 +67,7 @@ Route::group(['middleware' => 'checklogin', 'namespace' => 'Backend', 'prefix' =
 
 	// Category
 	Route::get('category', 'CategoryController@index');
-	Route::match(['get', 'post'], 'add-category', 'CategoryController@addCategory');
+	Route::match(['get', 'post'], 'category/add', 'CategoryController@addCategory');
+	Route::match(['get', 'post'], 'category/edit/{id}', 'CategoryController@editCategory');
+	Route::get('category/del/{id}', 'CategoryController@deleteCategory');
 });

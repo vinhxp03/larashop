@@ -10,12 +10,12 @@
   <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
     <div class="controls d-flex justify-content-center justify-content-md-end">
       <input type="search" class="form-control d-inline-block" placeholder="Search in tabel...">
-      <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/add-category') }}'">Thêm mới danh mục</button>
+      <button type="button" class="btn btn-danger" onclick="window.location.href='{{ url('admin/category/add') }}'">Thêm mới danh mục</button>
     </div>
   </div>
 </div>
-@if (Session::has('success'))
-  <div class="alert alert-success" role="alert">{{ Session::get('success') }}</div>
+@if (Session::has('message'))
+  <div class="alert alert-{{ Session::get('flag') }}" role="alert">{{ Session::get('message') }}</div>
 @endif
 <table class="table mb-4 responsive-table table-bordered bg-white">
   <thead class="thead-light2">
@@ -38,8 +38,8 @@
       <td data-label="Actions" class="text-md-center dropdown dropleft">
         <a href="#" class="text-muted" id="actionDropdown" data-toggle="dropdown" aria-expanded="false"><span class="material-icons md-20 align-middle">more_vert</span></a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="actionDropdown" x-placement="left-start" style="position: absolute; transform: translate3d(24px, 13px, 0px); top: 0px; left: 0px; will-change: transform;">
-          <a class="dropdown-item" href="#">Xóa dòng</a>
-          <a class="dropdown-item" href="#">Sửa dòng</a>
+          <a class="dropdown-item" href="{{ url('admin/category/del/'.$category->id) }}" data-toggle="modal" data-target="#confirm-modal">Xóa dòng</a>
+          <a class="dropdown-item" href="{{ url('admin/category/edit/'.$category->id) }}">Sửa dòng</a>
         </div>
       </td>
     </tr>
